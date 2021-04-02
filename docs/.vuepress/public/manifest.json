@@ -1,0 +1,16 @@
+{
+    "name": "Gourd",
+    "short_name": "Gourd",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "white",
+    "description": "Gourd - A blog site.",
+    "theme_color": "white",
+    "icons": [
+      {
+        "src": "./logo.svg",
+        "sizes": "144x144",
+        "type": "image/svg"
+      }
+    ]
+}
