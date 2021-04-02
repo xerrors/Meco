@@ -1,0 +1,17 @@
+{
+  "name": "meco",
+  "version": "0.1.0",
+  "description": "a site powered by vuepress-v2",
+  "main": "index.js",
+  "repository": "https://github.com/xerrors/meco",
+  "author": "Xerrors <xerrors@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.6",
+    "vuepress-vite": "^2.0.0-beta.2"
+  }
+}
