@@ -1,10 +1,16 @@
 ---
-home: false
+sidebar: false
+heroText: Hi, I'm Xerrors.
+tagline: Hero subtitle
+actionText: 查看博客
+actionLink: /blogs
+heroImage: /logo.png
+heroAlt: Logo image
+description: 我是一名大四学生/生活费终结者/可乐克星/数码产品破坏大师。
+footer: Developed by Xerrors
 ---
 
-<template>
-  <HomePage />
-</template>
+<HomePage class="my-home"/>
 
 <script>
 import { defineComponent } from 'vue'
@@ -17,10 +23,17 @@ export default defineComponent({
 })
 </script>
 
+<style lang='scss' scoped>
+.my-home {
 
-<!-- vitepress 地址: https://github.com/Xerrors/Gourd
+  footer {
+    display: none;
+  }
+}
+</style>
 
-目前还存在的问题
-
-1. 主题的配置需要修改
-2. css 变量的修改和适配 -->
+<!-- <style lang='scss'>
+.theme-default-content {
+  max-width: var(--page-width-w)!important;
+}
+</style> -->

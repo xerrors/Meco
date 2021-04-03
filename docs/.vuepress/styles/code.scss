@@ -1,8 +1,5 @@
-/* 代码样式部分 */
-/* code[class*="language-"],
-pre[class*="language-"] {
-  color: none;
-} */
+// 代码样式部分
+
 code[class*=language-], pre[class*=language-] {
   color: inherit;
 }
@@ -11,10 +8,15 @@ pre[class*=language-] code, .line-numbers {
   color: inherit !important;
 }
 
+.line-number {
+  line-height: 1;
+  opacity: 0.6;
+}
+
 div[class*=language-].line-numbers-mode::after {
   border-right-color: #e0e0e0;
 }
 
-div[class*=language-]::before {
-  color: inherit;
+.theme-default-content code {
+  background-color: var(--code-bg-color) !important;
 }
