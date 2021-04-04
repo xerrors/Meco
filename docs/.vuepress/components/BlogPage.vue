@@ -1,7 +1,7 @@
 <template>
   <div class="blog-container">
     <div class="slideshow">
-      <Shuffler :sliderArray="frontmatter.banner" />
+      <Shuffler :sliderArray="banner" />
     </div>
 
     <div class="categories">
@@ -76,11 +76,10 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, computed } from "vue";
-import { usePageFrontmatter } from "@vuepress/client";
+import { defineComponent, ref, reactive, computed, onMounted } from "vue";
 import { SearchOutlined } from "@ant-design/icons-vue";
 import axios from "axios";
-import Shuffler from "./Shuffler.vue";
+import Shuffler from "@components/Shuffler.vue";
 
 import { parseTime } from "@src/utils/format";
 import { getRandomCover } from "@src/utils/common";
@@ -92,7 +91,17 @@ export default defineComponent({
     Shuffler,
   },
   setup() {
-    const frontmatter = usePageFrontmatter().value;
+    const banner = ref([{
+        cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210220180756.png",
+        link: "/blog/刷题/2020-09-07-动态规划之背包问题-刷题记录",
+      }, {
+        cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207165125.png",
+        link: "/blog/刷题/2020-09-07-动态规划之背包问题-刷题记录",
+      }, {
+        cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210220100428.png",
+        link: "/blog/刷题/2020-09-07-动态规划之背包问题-刷题记录",
+      },
+    ]);
 
     const pages = ref([]);
     function getPages() {
@@ -126,7 +135,6 @@ export default defineComponent({
           });
       });
     }
-    getPages();
 
     const searcher = reactive({
       value: "",
@@ -135,10 +143,9 @@ export default defineComponent({
       },
     });
 
-    const labels = frontmatter.blogCategories;
     const categories = reactive({
-      labels: labels,
-      active: labels[0] || "全部",
+      labels: ["全部", "前端", "人工智能", "算法", "周报"],
+      active: "全部",
       selectCategory: (link) => {
         categories.active = link;
       },
@@ -157,8 +164,6 @@ export default defineComponent({
       }
     });
 
-    console.log(filtedPages);
-
     const zhuanlan = ref([]);
     function getZhuanlan() {
       new Promise((resolve, reject) => {
@@ -176,17 +181,20 @@ export default defineComponent({
         });
       });
     }
+    getPages();
     getZhuanlan();
 
-    document.getElementsByClassName("theme-default-content")[0].style.maxWidth =
+    onMounted(() => {
+      document.getElementsByClassName("theme-default-content")[0].style.maxWidth =
       "var(--page-width-w)";
+    })
 
     return {
       filtedPages,
-      frontmatter,
       categories,
       searcher,
       zhuanlan,
+      banner,
     };
   },
 });

@@ -1,10 +1,10 @@
 <template>
   <div class="home-container">
     <div class="hero">
-      <h1>{{ data.heroText }}</h1>
-      <p>{{ data.description }}</p>
+      <h1>{{ frontmatter.heroText }}</h1>
+      <p>{{ frontmatter.description }}</p>
       <button class="action-btn">
-        <a :href="data.actionLink">{{ data.actionText }}</a>
+        <a :href="frontmatter.actionLink">{{ frontmatter.actionText }}</a>
       </button>
       <img src="@assets/img/home.svg" alt="" />
     </div>
@@ -12,19 +12,26 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted } from "vue";
 import {
   usePageFrontmatter,
   useSiteLocaleData,
   withBase,
 } from '@vuepress/client'
-// import axios from 'axios';
 export default defineComponent({
   name: "HomePage",
+  props: {
+    frontmatter: {
+      require: true,
+      type: Object,
+    },
+  },
   setup() {
     const data = usePageFrontmatter();
 
-    document.getElementsByClassName("theme-default-content")[0].style.maxWidth = "var(--page-width-w)";
+    onMounted(() => {
+      document.getElementsByClassName("theme-default-content")[0].style.maxWidth = "var(--page-width-w)";
+    })
 
     return {
       data,

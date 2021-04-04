@@ -11,7 +11,7 @@ function getConfig() {
     lang: 'zh-CN',
     title: 'Meco',
     description: '个人博客网站',
-    theme: path.resolve(__dirname, './theme'),
+    // theme: path.resolve(__dirname, './theme'),
 
     themeConfig: {
       // logo: 'https://vuejs.org/images/logo.png',

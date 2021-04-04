@@ -10,16 +10,24 @@ description: 我是一名大四学生/生活费终结者/可乐克星/数码产�
 footer: Developed by Xerrors
 ---
 
-<HomePage class="my-home"/>
+<HomePage class="my-home" :frontmatter="frontmatter"/>
 
 <script>
 import { defineComponent } from 'vue'
 import HomePage from '@components/HomePage.vue'
+import { usePageFrontmatter } from '@vuepress/client'
 export default defineComponent({
   name: 'Home',
   components: {
     HomePage,
   },
+  setup() {
+    const frontmatter = usePageFrontmatter();
+
+    return {
+      frontmatter
+    }
+  }
 })
 </script>
 
