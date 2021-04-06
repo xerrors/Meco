@@ -63,7 +63,7 @@ export default defineComponent({
     function getFriends() {
       new Promise((resolve, reject) => {
         axios({
-          url: "http://116.62.110.131:5000/friends",
+          url: "https://www.xerrors.fun:5000/friends",
           method: "get"
         })
         .then(res => {

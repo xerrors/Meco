@@ -4,6 +4,7 @@ function getConfig() {
   const config = {
     head: [
       ["meta", { name: "keywords", content: "meco" }],
+      // ["meta", { 'http-equiv': "Content-Security-Policy", content: "upgrade-insecure-requests" }],
       ['link', { rel: 'manifest', href: '/manifest.json' }],
       ['script', { src: '/font.js', type: 'application/javascript' }],
       ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
@@ -45,16 +46,16 @@ function getConfig() {
       '@src': path.resolve(__dirname, '.'),
     },
 
-    bundler: '@vuepress/vite',
-    bundlerConfig: {
-      viteOptions: {
-        optimizeDeps: {
-          exclude: [
-            '@vueuse/core',
-          ],
-        },
-      },
-    },
+    // bundler: '@vuepress/vite',
+    // bundlerConfig: {
+    //   viteOptions: {
+    //     optimizeDeps: {
+    //       exclude: [
+    //         '@vueuse/core',
+    //       ],
+    //     },
+    //   },
+    // },
   }
   return config;
 }

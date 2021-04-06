@@ -59,7 +59,7 @@ export default defineComponent({
     function getDetails() {
       new Promise((resolve, reject) => {
         axios({
-          url: "http://116.62.110.131:5000/zhuanlan",
+          url: "https://www.xerrors.fun:5000/zhuanlan",
           params: {
             name: name,
           }

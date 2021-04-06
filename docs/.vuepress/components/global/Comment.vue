@@ -191,7 +191,7 @@ export default {
       addLike: () => {
         new Promise((resolve, reject) => {
           axios({
-            url: "http://116.62.110.131:5000/blog/articles/like",
+            url: "https://www.xerrors.fun:5000/blog/articles/like",
             method: "post",
             params: {
               path: commenter.params.path,
@@ -225,7 +225,7 @@ export default {
       getComments: () => {
         new Promise((resolve, reject) => {
           axios({
-            url: "http://116.62.110.131:5000/blog/articles/comment",
+            url: "https://www.xerrors.fun:5000/blog/articles/comment",
             method: "get",
             params: {
               path: path.value,
@@ -243,12 +243,12 @@ export default {
 
     // 解析服务器传回来的评论数据并进行初步处理
     const praseComments = (comments) => {
-      console.log(comments[0].content)
+      // console.log(comments[0].content)
       let comment_groups = [];
       comments.sort((a, b) => Number(a.id) - Number(b.id));
       for (var i in comments) {
           
-        console.log(comments[i].content)
+        // console.log(comments[i].content)
         comments[i].date = formatTime(new Date(comments[i].date));
         if (!comments[i].follow_id) {
           comments[i].follows = [];
@@ -269,12 +269,12 @@ export default {
     // 提交评论表单
     const commitComment = () => {
       // 将用户输入的用户名以及邮箱保存在 localstorage 里面
-      localStorage.setItem("reviewer", commenter.params.reviewer);
-      localStorage.setItem("reviewer_mail", commenter.params.reviewer_mail);
+      window.localStorage.setItem("reviewer", commenter.params.reviewer);
+      window.localStorage.setItem("reviewer_mail", commenter.params.reviewer_mail);
       commenter.loading = true;
       new Promise((resolve, reject) => {
         axios({
-          url: "http://116.62.110.131:5000/blog/articles/comment",
+          url: "https://www.xerrors.fun:5000/blog/articles/comment",
           method: "post",
           params: commenter.params,
           data: commenter.content,
@@ -318,15 +318,15 @@ export default {
       return "https://api.prodless.com/avatar.png?size=40&backgroundColor=f0f2f4&color=" + color;
     }
 
-    commentList.getComments();
-
     onMounted(() => {
+      commentList.getComments();
+
       // 从 localstorage 获取信息
-      if (localStorage.getItem("reviewer")) {
-        commenter.params.reviewer = localStorage.getItem("reviewer");
+      if (window.localStorage.getItem("reviewer")) {
+        commenter.params.reviewer = window.localStorage.getItem("reviewer");
       }
-      if (localStorage.getItem("reviewer_mail")) {
-        commenter.params.reviewer_mail = localStorage.getItem("reviewer_mail");
+      if (window.localStorage.getItem("reviewer_mail")) {
+        commenter.params.reviewer_mail = window.localStorage.getItem("reviewer_mail");
       }
     });
 

@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, computed } from 'vue';
+import { defineComponent, ref, reactive, computed, onMounted } from 'vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
 import axios from 'axios';
 import { formatTime } from "@src/utils/format";
@@ -74,7 +74,7 @@ export default defineComponent({
     // 从本地获取点赞了的列表
     function getLocalActiveList() {
       let lovedMsgs = [];
-      const temp = localStorage.getItem("lovedMsgs")
+      const temp = window.localStorage.getItem("lovedMsgs")
       if (temp) {
         lovedMsgs = temp.split(",");
       }
@@ -108,7 +108,7 @@ export default defineComponent({
       }
       new Promise((resolve, reject) => {
         axios({
-          url: "http://116.62.110.131:5000/zones",
+          url: "https://www.xerrors.fun:5000/zones",
           method: "post",
           params: newMsg,
         })
@@ -139,7 +139,7 @@ export default defineComponent({
       var token = prompt("请输入 token:");
       new Promise((resolve, reject) => {
         axios({
-          url: "http://116.62.110.131:5000/zones",
+          url: "https://www.xerrors.fun:5000/zones",
           method: "delete",
           params: {
             id: id,
@@ -156,6 +156,8 @@ export default defineComponent({
           reject(err);
         })
       })
+
+      return
     }
 
     // 点赞功能，纯本地化，存储在 localstorage 里面
@@ -166,7 +168,7 @@ export default defineComponent({
         lovedMsgs.unshift(String(id));
       }
       // console.log(lovedMsgs)
-      localStorage.setItem("lovedMsgs", String(lovedMsgs));
+      window.localStorage.setItem("lovedMsgs", String(lovedMsgs));
 
       posts.value = posts.value.map(item => {
         if (lovedMsgs.includes(String(item.id)) ) {
@@ -180,7 +182,7 @@ export default defineComponent({
     function getMessages() {
       new Promise((resolve, reject) => {
         axios({
-          url: "http://116.62.110.131:5000/zones",
+          url: "https://www.xerrors.fun:5000/zones",
           method: "GET",
         })
         .then((res) => {
@@ -204,7 +206,9 @@ export default defineComponent({
     })
 
     // 执行部分：
-    getMessages();
+    onMounted(() => {
+      getMessages();
+    }),
 
     return {
       posts,
