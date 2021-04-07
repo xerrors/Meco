@@ -1,6 +1,6 @@
 ---
 title: 博客
-permalink: /blogs
+permalink: /blogs/
 sidebar: false
 ---
 

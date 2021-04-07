@@ -1,6 +1,6 @@
 ---
 title: 关于
-permalink: /about
+permalink: /about/
 sidebar: false
 ---
 

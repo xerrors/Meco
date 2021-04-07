@@ -1,6 +1,6 @@
 ---
 title: 小伙伴
-permalink: /friends
+permalink: /friends/
 sidebar: false
 ---
 

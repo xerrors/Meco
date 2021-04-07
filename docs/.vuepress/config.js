@@ -23,21 +23,21 @@ function getConfig() {
       contributors: false,
 
       navbar: [
-        { text: "测试", link: "/test" },
-        { text: "博客", link: "/blogs" },
-        { text: "动态", link: "/zone" },
-        { 
-          text: "下拉",
-          children: [
-            { text: "关于", link: "/about" },
-            { text: "友链", link: "/friends" },
-          ]
-        }
+        { text: "测试", link: "/test/" },
+        { text: "博客", link: "/blogs/" },
+        { text: "动态", link: "/zone/" },
+        { text: "关于", link: "/about/" },
+        { text: "友链", link: "/friends/" },
       ],
     },
 
     plugins: [
-      // ['@vuepress/plugin-debug']
+      ['@vuepress/medium-zoom', {
+          selector: ':not(a) > img:not(.no-zoom)',
+          // medium-zoom options here
+          // See: https://github.com/francoischalifour/medium-zoom#options
+        }
+      ]
     ],
 
     alias: {
@@ -46,16 +46,16 @@ function getConfig() {
       '@src': path.resolve(__dirname, '.'),
     },
 
-    // bundler: '@vuepress/vite',
-    // bundlerConfig: {
-    //   viteOptions: {
-    //     optimizeDeps: {
-    //       exclude: [
-    //         '@vueuse/core',
-    //       ],
-    //     },
-    //   },
-    // },
+    bundler: '@vuepress/vite',
+    bundlerConfig: {
+      viteOptions: {
+        optimizeDeps: {
+          exclude: [
+            '@vueuse/core',
+          ],
+        },
+      },
+    },
   }
   return config;
 }

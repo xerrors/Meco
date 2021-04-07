@@ -2,17 +2,19 @@
   <div class="home-container">
     <div class="hero">
       <h1>{{ frontmatter.heroText }}</h1>
-      <p>{{ frontmatter.description }}</p>
+      <p><span>{{ des.prefix }}</span><span ref="desDom"></span><span>{{ des.endfix }}</span></p>
       <button class="action-btn">
         <a :href="frontmatter.actionLink">{{ frontmatter.actionText }}</a>
       </button>
-      <img src="@assets/img/home.svg" alt="" />
+      <img src="@assets/img/home.svg" alt="" class="no-zoom"/>
     </div>
   </div>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
+import {init} from 'ityped';
+
 import {
   usePageFrontmatter,
   useSiteLocaleData,
@@ -28,13 +30,31 @@ export default defineComponent({
   },
   setup() {
     const data = usePageFrontmatter();
+    const desDom=ref(null);
+    const des = {
+      prefix: '我是',
+      strings: [
+        '大四学生',
+        '生活费终结者',
+        '可乐克星',
+        '数码产品破坏大师',
+        '计算机视觉炼丹师',
+        '前端业余菜鸡',
+      ],
+      endfix: '。',
+    }
 
     onMounted(() => {
       document.getElementsByClassName("theme-default-content")[0].style.maxWidth = "var(--page-width-w)";
+
+      // 打字机效果
+      init(desDom.value, {showCursor: true, strings: des.strings});
     })
 
     return {
       data,
+      desDom,
+      des,
     };
   },
 });
@@ -98,6 +118,12 @@ export default defineComponent({
     position: absolute;
     right: 0;
     bottom: 0;
+  }
+}
+
+@media (max-width: 1537px) {
+  .hero img {
+    width: 50vw;
   }
 }
 </style>

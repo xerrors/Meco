@@ -1,6 +1,6 @@
 ---
 title: 基于WINDOWS下FLEX与BISON的计算器实现
-permalink: /bison-calc
+permalink: /bison-calc/
 date: 2020-01-10 00:23:48
 tags: 
  - 基础

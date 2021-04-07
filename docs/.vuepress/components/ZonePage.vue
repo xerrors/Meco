@@ -132,32 +132,31 @@ export default defineComponent({
 
       if (count < 10) {
         count += 1;
-        return;
       }
-      count = 0;
+      else {
+        count = 0;
 
-      var token = prompt("请输入 token:");
-      new Promise((resolve, reject) => {
-        axios({
-          url: "https://www.xerrors.fun:5000/zones",
-          method: "delete",
-          params: {
-            id: id,
-            token: token,
-          }
+        var token = prompt("请输入 token:");
+        new Promise((resolve, reject) => {
+          axios({
+            url: "https://www.xerrors.fun:5000/zones",
+            method: "delete",
+            params: {
+              id: id,
+              token: token,
+            }
+          })
+          .then((res) => {
+            posts.value = parseData(res.data.data);
+            alert(res.data.message);
+            // console.log(res.data.message)
+            resolve(res);
+          })
+          .catch((err) => {
+            reject(err);
+          })
         })
-        .then((res) => {
-          posts.value = parseData(res.data.data);
-          alert(res.data.message);
-          // console.log(res.data.message)
-          resolve(res);
-        })
-        .catch((err) => {
-          reject(err);
-        })
-      })
-
-      return
+      }
     }
 
     // 点赞功能，纯本地化，存储在 localstorage 里面
@@ -208,7 +207,7 @@ export default defineComponent({
     // 执行部分：
     onMounted(() => {
       getMessages();
-    }),
+    })
 
     return {
       posts,

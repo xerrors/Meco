@@ -1,6 +1,6 @@
 ---
 title: Pwn 入门（ret2addr)
-permalink: /pwn-ret2addr
+permalink: /pwn-ret2addr/
 date: 2019-09-15 11:20:45
 tags: 
  - Pwn

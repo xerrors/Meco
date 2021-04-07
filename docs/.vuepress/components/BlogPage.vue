@@ -23,8 +23,8 @@
         @search="searcher.onSearch"
       /> -->
     </div>
-
-    <div class="blogs">
+    <Loading v-if="loading" />
+    <div v-else class="blogs">
       <div v-for="(page, ind) in filtedPages" :key="ind">
         <div class="week-card" v-if="page.categories == '周报'">
           <div class="week-card__header">{{ page.formatDate }}周报</div>
@@ -93,16 +93,16 @@ export default defineComponent({
   setup() {
     const banner = ref([{
         cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210220180756.png",
-        link: "/blog/刷题/2020-09-07-动态规划之背包问题-刷题记录",
+        link: "/anime-gan-note/",
       }, {
         cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207165125.png",
-        link: "/blog/刷题/2020-09-07-动态规划之背包问题-刷题记录",
+        link: "https://baidu.com",
       }, {
         cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210220100428.png",
-        link: "/blog/刷题/2020-09-07-动态规划之背包问题-刷题记录",
+        link: "/cycle-gan-reading-note/",
       },
     ]);
-
+    const loading = ref(true);
     const pages = ref([]);
     function getPages() {
       new Promise((resolve, reject) => {
@@ -122,12 +122,16 @@ export default defineComponent({
               if (item.permalink[0] != "/") {
                 item.permalink = "/" + item.permalink;
               }
+              if (item.permalink[-1] != '/') {
+                item.permalink =  item.permalink + "/";
+              }
               return item;
             });
 
             pages.value.sort((a, b) => {
               return Number(new Date(b.date)) - Number(new Date(a.date));
             });
+            loading.value = false;
             resolve(res);
           })
           .catch((err) => {
@@ -195,6 +199,7 @@ export default defineComponent({
       searcher,
       zhuanlan,
       banner,
+      loading,
     };
   },
 });
