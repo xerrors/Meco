@@ -15,8 +15,6 @@ function getConfig() {
     // theme: path.resolve(__dirname, './theme'),
 
     themeConfig: {
-      // logo: 'https://vuejs.org/images/logo.png',
-      repo: 'xerrors/meco',
       sidebar: 'auto',
       editLink: false,
       lastUpdated: false,

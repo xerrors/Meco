@@ -2,7 +2,7 @@
   <div class="about-container">
     <div class="about-header">
       <h1>{{ base.author }}</h1>
-      <a :href="'mailto:' + base.mailAddress"><MailOutlined style="margin-right: 16px;" />联系我</a>
+      <a :href="'mailto:' + base.mailAddress"><MailOutlined style="margin-right: 12px;" />联系我</a>
       <p>{{ base.info }}</p>
     </div>
 
@@ -71,7 +71,7 @@ export default defineComponent({
   padding: 40px 0 40px 0;
   display: grid;
   grid-template-rows: 80px 30px;
-  grid-template-columns: auto 120px;
+  grid-template-columns: auto 100px;
 
   h1 {
     font-size: 48px;
@@ -88,7 +88,7 @@ export default defineComponent({
 
   a {
     text-decoration: none;
-    padding: 10px 16px;
+    padding: 8px 14px;
     padding-right: 0;
     cursor: pointer;
     border: none;
@@ -99,8 +99,8 @@ export default defineComponent({
     background: var(--accent-color);
     border-radius: 4px;
     color: white;
-    font-size: 16px;
-    letter-spacing: 4px;
+    font-size: 14px;
+    letter-spacing: 2px;
 
     &:hover {
       text-decoration: none;
