@@ -21,7 +21,6 @@ function getConfig() {
       editLink: false,
       lastUpdated: false,
       contributors: false,
-      logo: '/avatar.jpg',
 
       navbar: [
         { text: "博客", link: "/blogs/" },
