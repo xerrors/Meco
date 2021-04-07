@@ -12,6 +12,8 @@
   },
   "devDependencies": {
     "@ant-design/icons-vue": "^6.0.1",
+    "@iktakahiro/markdown-it-katex": "^4.0.1",
+    "@maginapp/vuepress-plugin-katex": "^1.0.11",
     "@vueuse/core": "^4.6.3",
     "axios": "^0.21.1",
     "ityped": "^1.0.3",

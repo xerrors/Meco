@@ -21,9 +21,9 @@ function getConfig() {
       editLink: false,
       lastUpdated: false,
       contributors: false,
+      logo: '/avatar.jpg',
 
       navbar: [
-        { text: "测试", link: "/test/" },
         { text: "博客", link: "/blogs/" },
         { text: "动态", link: "/zone/" },
         { text: "关于", link: "/about/" },
@@ -33,12 +33,18 @@ function getConfig() {
 
     plugins: [
       ['@vuepress/medium-zoom', {
-          selector: ':not(a) > img:not(.no-zoom)',
-          // medium-zoom options here
-          // See: https://github.com/francoischalifour/medium-zoom#options
-        }
-      ]
+        selector: ':not(a) > img:not(.no-zoom)',
+        // medium-zoom options here
+        // See: https://github.com/francoischalifour/medium-zoom#options
+      }],
+      ['@maginapp/vuepress-plugin-katex', {
+        delimiters: 'dollars',
+      }]
     ],
+
+    // extendsMarkdown: (md) => {
+    //   md.use(require('@iktakahiro/markdown-it-katex'));
+    // },
 
     alias: {
       '@components': path.resolve(__dirname, './components'),

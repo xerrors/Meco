@@ -444,6 +444,10 @@ export default defineComponent({
       pre {
         white-space: pre-wrap;
         word-wrap: break-word;
+        line-height: 1.7;
+        background: none;
+        color: var(--c-text-light-3);
+        padding: 0;
       }
     }
 

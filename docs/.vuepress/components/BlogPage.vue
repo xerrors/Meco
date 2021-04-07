@@ -69,7 +69,6 @@
 
       <div class="zhuanlan-slideshow">
         <Shuffler :sliderArray="zhuanlan" />
-        <!-- <img src="https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20201009130905.png" alt=""> -->
       </div> -->
     </div>
   </div>
