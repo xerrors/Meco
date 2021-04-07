@@ -29,18 +29,18 @@
         <div class="week-card" v-if="page.categories == '周报'">
           <div class="week-card__header">{{ page.formatDate }}周报</div>
           <div class="week-card__title">
-            <a :href="page.permalink">{{ page.title }}</a>
+            <a :href="page.permalink" target="_blank">{{ page.title }}</a>
           </div>
           <div class="week-card__cover">
-            <a :href="page.permalink"><img :src="page.cover" alt="" /></a>
+            <a :href="page.permalink" target="_blank"><img :src="page.cover" alt="" /></a>
           </div>
           <div class="week-card__content">
-            <a :href="page.permalink">{{ page.abstract }}</a>
+            <a :href="page.permalink" target="_blank">{{ page.abstract }}</a>
           </div>
         </div>
 
         <div v-else class="blog-card">
-          <a :href="page.permalink">
+          <a :href="page.permalink" target="_blank">
             <div class="blog-card__image">
               <img
                 :src="
@@ -51,7 +51,7 @@
           ></a>
 
           <div class="blog-card__info">
-            <a :href="page.permalink"
+            <a :href="page.permalink" target="_blank"
               ><h3>{{ page.title }}</h3></a
             >
             <span>{{ page.formatDate }}</span>
