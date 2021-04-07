@@ -61,16 +61,16 @@
     </div>
 
     <div class="blog-right">
-      <!-- <div class="adversizement">
+      <div class="adversizement">
         广告位招租
-      </div> -->
+      </div>
 
-      <h4 class="border-left-h">我的专栏</h4>
+      <!-- <h4 class="border-left-h">我的专栏</h4>
 
       <div class="zhuanlan-slideshow">
         <Shuffler :sliderArray="zhuanlan" />
         <!-- <img src="https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20201009130905.png" alt=""> -->
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
