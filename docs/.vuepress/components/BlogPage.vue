@@ -77,7 +77,9 @@
 <script>
 import { defineComponent, ref, reactive, computed, onMounted } from "vue";
 import { SearchOutlined } from "@ant-design/icons-vue";
+
 import axios from "axios";
+
 import Shuffler from "@components/Shuffler.vue";
 
 import { parseTime } from "@src/utils/format";
@@ -101,8 +103,10 @@ export default defineComponent({
         link: "/cycle-gan-reading-note/",
       },
     ]);
+
     const loading = ref(true);
     const pages = ref([]);
+
     function getPages() {
       new Promise((resolve, reject) => {
         axios({
@@ -181,9 +185,13 @@ export default defineComponent({
             };
             return temp;
           });
+          resolve(res);
+        }).catch(err => {
+          reject(err);
         });
       });
     }
+
     getPages();
     getZhuanlan();
 

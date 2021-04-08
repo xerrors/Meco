@@ -85,7 +85,9 @@ export default defineComponent({
       pre: pre,
     });
 
-    shuffler.autoStart();
+    onMounted(() => {
+      shuffler.autoStart();
+    })
 
     return {
       shuffler,
