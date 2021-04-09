@@ -23,8 +23,8 @@ function getConfig() {
       navbar: [
         { text: "博客", link: "/blogs/" },
         { text: "动态", link: "/zone/" },
-        { text: "关于", link: "/about/" },
         { text: "友链", link: "/friends/" },
+        { text: "关于我", link: "/about/" },
       ],
     },
 
