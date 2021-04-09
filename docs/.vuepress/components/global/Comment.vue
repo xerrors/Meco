@@ -191,7 +191,7 @@ export default {
       addLike: () => {
         new Promise((resolve, reject) => {
           axios({
-            url: "https://api.xerrors.fun:5000/blog/articles/like",
+            url: "https://xerrors.fun:5000/blog/articles/like",
             method: "post",
             params: {
               path: commenter.params.path,
@@ -225,7 +225,7 @@ export default {
       getComments: () => {
         new Promise((resolve, reject) => {
           axios({
-            url: "https://api.xerrors.fun:5000/blog/articles/comment",
+            url: "https://xerrors.fun:5000/blog/articles/comment",
             method: "get",
             params: {
               path: path.value,
@@ -274,7 +274,7 @@ export default {
       commenter.loading = true;
       new Promise((resolve, reject) => {
         axios({
-          url: "https://api.xerrors.fun:5000/blog/articles/comment",
+          url: "https://xerrors.fun:5000/blog/articles/comment",
           method: "post",
           params: commenter.params,
           data: commenter.content,
