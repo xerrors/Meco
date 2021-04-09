@@ -27,5 +27,5 @@ cd Meco
 
 docker build --tag vuepress-docker .
 
-docker run -it -p 80:80 --rm vuepress-docker
+docker run -d -p 80:80 --rm vuepress-docker
 ```
