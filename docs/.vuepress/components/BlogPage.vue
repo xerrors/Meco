@@ -125,7 +125,7 @@ export default defineComponent({
               if (item.permalink[0] != "/") {
                 item.permalink = "/" + item.permalink;
               }
-              if (item.permalink[-1] != '/') {
+              if (item.permalink[item.permalink.length-1] != '/') {
                 item.permalink =  item.permalink + "/";
               }
               return item;
