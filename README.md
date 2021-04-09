@@ -16,3 +16,16 @@
 - 首页的 medium-zoom 设置不可缩放之后，刷新网页又会缩放
 - 公式显示不正确，插件尚未支持 vuepress2
 - 将博客页面的文章选择在新标签页打开
+
+
+### 如何在 docker 中启动
+
+```sh
+git clone https://github.com/Xerrors/Meco.git
+
+cd Meco
+
+docker build --tag vuepress-docker .
+
+docker run -it -p 80:80 --rm vuepress-docker
+```
