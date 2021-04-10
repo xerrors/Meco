@@ -13,7 +13,7 @@ set -e
 yarn docs:build
 
 # 停止之前已经在运行的 docker
-docker stop meco
+docker stop meco || echo 'skip...'
 
 # build & run
 docker build --tag vue-deploy .
