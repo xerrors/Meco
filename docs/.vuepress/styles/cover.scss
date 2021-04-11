@@ -8,10 +8,12 @@
 }
 
 .theme-default-content:not(.custom) {
-  padding-top: var(--header-height);
+  margin-top: var(--header-height);
+  max-width: var(--page-width);
 
   &>:first-child {
     margin-top: 0;
+    padding-top: 0;
   }
 }
 

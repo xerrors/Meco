@@ -7,6 +7,6 @@ module.exports = {
   // 覆盖 `404` 布局
   layouts: {
     404: path.resolve(__dirname, 'layouts/404.vue'),
-    // Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
+    Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
   },
 }

@@ -1,126 +1,54 @@
 <template>
-  <div
-    class="theme-container"
-    :class="containerClass"
-    @touchstart="onTouchStart"
-    @touchend="onTouchEnd"
-  >
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar">
-      <template #before>
-        <slot name="navbar-before" />
-      </template>
-      <template #after>
-        <slot name="navbar-after" />
-      </template>
-    </Navbar>
+  <Layout>
+    <template #page-top>
+      <div class='layout-component'>
+        <PageTop v-if="isBlog"></PageTop>
+      </div>
+    </template>
 
-    <div class="sidebar-mask" @click="toggleSidebar(false)" />
-
-    <Sidebar>
-      <template #top>
-        <slot name="sidebar-top" />
-      </template>
-      <template #bottom>
-        <slot name="sidebar-bottom" />
-      </template>
-    </Sidebar>
-
-    <Home v-if="$frontmatter.home" />
-
-    <Transition v-else name="fade-slide-y" mode="out-in">
-      <Page :key="$page.path">
-        <template #top>
-          <slot name="page-top" />
-        </template>
-        <template #bottom>
-          <slot name="page-bottom" />
-        </template>
-      </Page>
-    </Transition>
-  </div>
+    <template #page-bottom>
+      <div class='layout-component'>
+        <Comment v-if="isBlog"></Comment>
+      </div>
+    </template>
+  </Layout>
 </template>
 
-<script lang="ts">
+<script>
+import { defineComponent, computed } from 'vue'
 import {
-  computed,
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  ref,
-  Transition,
-} from 'vue'
-import { useRouter } from 'vue-router'
-import { usePageFrontmatter } from '@vuepress/client'
-import { useThemeLocaleData } from '@vuepress/plugin-theme-data/lib/composables'
-import Home from '@vuepress/theme-default/lib/components/Home.vue'
-import Page from '@vuepress/theme-default/lib/components/Page.vue'
-import Navbar  from '@vuepress/theme-default/lib/components/Navbar.vue'
-import Sidebar from '@vuepress/theme-default/lib/components/Sidebar.vue'
-import { useSidebarItems } from '@vuepress/theme-default/lib/composables'
-import type { DefaultThemeOptions } from '@vuepress/theme-default/lib/types'
+  usePageFrontmatter,
+  useSiteLocaleData,
+} from '@vuepress/client'
+
+import PageTop from '../components/PageTop.vue'
+import Layout from '@vuepress/theme-default/lib/layouts/Layout.vue'
+
 export default defineComponent({
-  name: 'Layout',
   components: {
-    Home,
-    Page,
-    Navbar,
-    Sidebar,
-    Transition,
+    Layout,
+    PageTop,
   },
   setup() {
-    const frontmatter = usePageFrontmatter()
-    const themeLocale = useThemeLocaleData<DefaultThemeOptions>()
-    // navbar
-    const shouldShowNavbar = computed(
-      () =>
-        frontmatter.value.navbar !== false && themeLocale.value.navbar !== false
-    )
-    // sidebar
-    const sidebarItems = useSidebarItems()
-    const isSidebarOpen = ref(false)
-    const toggleSidebar = (to?: boolean): void => {
-      isSidebarOpen.value = typeof to === 'boolean' ? to : !isSidebarOpen.value
-    }
-    const touchStart = { x: 0, y: 0 }
-    const onTouchStart = (e): void => {
-      touchStart.x = e.changedTouches[0].clientX
-      touchStart.y = e.changedTouches[0].clientY
-    }
-    const onTouchEnd = (e): void => {
-      const dx = e.changedTouches[0].clientX - touchStart.x
-      const dy = e.changedTouches[0].clientY - touchStart.y
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        if (dx > 0 && touchStart.x <= 80) {
-          toggleSidebar(true)
-        } else {
-          toggleSidebar(false)
-        }
-      }
-    }
-    // classes
-    const containerClass = computed(() => ({
-      'no-navbar': !shouldShowNavbar.value,
-      'no-sidebar': !sidebarItems.value.length,
-      'sidebar-open': isSidebarOpen.value,
-    }))
-    // close sidebar after navigation
-    let unregisterRouterHook
-    onMounted(() => {
-      const router = useRouter()
-      unregisterRouterHook = router.afterEach(() => {
-        toggleSidebar(false)
-      })
-    })
-    onUnmounted(() => {
-      unregisterRouterHook()
-    })
-    return {
-      containerClass,
-      shouldShowNavbar,
-      toggleSidebar,
-      onTouchStart,
-      onTouchEnd,
-    }
-  },
+    const fe = usePageFrontmatter().value
+
+    const isBlog = computed(() => {
+      return Boolean(fe.date);
+   })
+
+   console.log(isBlog)
+
+   return {
+     isBlog,
+   }
+  }
 })
 </script>
+
+<style lang="scss">
+.layout-component {
+  width: var(--page-width);
+  margin: 5rem auto 0 auto;
+  padding: 2rem 2.5rem;
+}
+</style>

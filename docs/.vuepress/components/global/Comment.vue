@@ -151,6 +151,14 @@ export default {
     const frontMatter = usePageFrontmatter();
 
     let path = ref(frontMatter.value.permalink);
+
+    if (path.value[0] == '/') {
+      path.value = path.value.slice(1)
+    }
+    if (path.value[path.value.length-1] == '/') {
+      path.value = path.value.slice(0, -1)
+    }
+
     let commenter = reactive({
       hidden: true,
       loading: false,
@@ -191,7 +199,7 @@ export default {
       addLike: () => {
         new Promise((resolve, reject) => {
           axios({
-            url: "https://xerrors.fun:5000/api/blog/articles/like",
+            url: "https://xerrors.fun:5000/api/articles/like",
             method: "post",
             params: {
               path: commenter.params.path,
@@ -225,7 +233,7 @@ export default {
       getComments: () => {
         new Promise((resolve, reject) => {
           axios({
-            url: "https://xerrors.fun:5000/api/blog/articles/comment",
+            url: "https://xerrors.fun:5000/api/articles/comment",
             method: "get",
             params: {
               path: path.value,
@@ -274,7 +282,7 @@ export default {
       commenter.loading = true;
       new Promise((resolve, reject) => {
         axios({
-          url: "https://xerrors.fun:5000/api/blog/articles/comment",
+          url: "https://xerrors.fun:5000/api/articles/comment",
           method: "post",
           params: commenter.params,
           data: commenter.content,
