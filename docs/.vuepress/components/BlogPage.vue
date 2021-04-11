@@ -110,7 +110,7 @@ export default defineComponent({
     function getPages() {
       new Promise((resolve, reject) => {
         axios({
-          url: "https://xerrors.fun:5000/articles",
+          url: "https://xerrors.fun:5000/api/articles",
           method: "get",
         })
           .then((res) => {
@@ -175,7 +175,7 @@ export default defineComponent({
     function getZhuanlan() {
       new Promise((resolve, reject) => {
         axios({
-          url: "https://xerrors.fun:5000/zhuanlan",
+          url: "https://xerrors.fun:5000/api/zhuanlan",
         }).then((res) => {
           // console.log(res.data.data);
           zhuanlan.value = res.data.data.map((item) => {

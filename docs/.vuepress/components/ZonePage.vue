@@ -108,7 +108,7 @@ export default defineComponent({
       }
       new Promise((resolve, reject) => {
         axios({
-          url: "https://xerrors.fun:5000/zones",
+          url: "https://xerrors.fun:5000/api/zones",
           method: "post",
           params: newMsg,
         })
@@ -139,7 +139,7 @@ export default defineComponent({
         var token = prompt("请输入 token:");
         new Promise((resolve, reject) => {
           axios({
-            url: "https://xerrors.fun:5000/zones",
+            url: "https://xerrors.fun:5000/api/zones",
             method: "delete",
             params: {
               id: id,
@@ -181,7 +181,7 @@ export default defineComponent({
     function getMessages() {
       new Promise((resolve, reject) => {
         axios({
-          url: "https://xerrors.fun:5000/zones",
+          url: "https://xerrors.fun:5000/api/zones",
           method: "GET",
         })
         .then((res) => {

@@ -63,7 +63,7 @@ export default defineComponent({
     function getFriends() {
       new Promise((resolve, reject) => {
         axios({
-          url: "https://xerrors.fun:5000/friends",
+          url: "https://xerrors.fun:5000/api/friends",
           method: "get"
         })
         .then(res => {
