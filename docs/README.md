@@ -3,7 +3,7 @@ sidebar: false
 heroText: Hi, I'm Xerrors.
 tagline: Hero subtitle
 actionText: 查看博客
-actionLink: /blogs
+actionLink: /blogs/
 heroImage: /logo.png
 heroAlt: Logo image
 description: 
