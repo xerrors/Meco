@@ -1,14 +1,14 @@
 <template>
   <Layout>
     <template #page-top>
-      <div class='layout-component'>
-        <PageTop v-if="isBlog"></PageTop>
+      <div class='layout-component' v-if="isBlog">
+        <PageTop></PageTop>
       </div>
     </template>
 
     <template #page-bottom>
-      <div class='layout-component'>
-        <Comment v-if="isBlog"></Comment>
+      <div class='layout-component' v-if="isBlog">
+        <Comment></Comment>
       </div>
     </template>
   </Layout>
