@@ -326,8 +326,32 @@ export default {
       return "https://api.prodless.com/avatar.png?size=40&backgroundColor=f0f2f4&color=" + color;
     }
 
+    const countVisitor = () => {
+      new Promise((resolve, reject) => {
+        axios({
+          url: "https://xerrors.fun:5000/api/visit",
+          method: "get",
+          params: {
+            path: path.value,
+          },
+        })
+          .then((res) => {
+            console.log(path.value, res.data.data);
+            resolve(res);
+          })
+          .catch((err) => {
+            console.log(err);
+            reject(err);
+          });
+      });
+    }
+
     onMounted(() => {
+      // 获取评论数据
       commentList.getComments();
+
+      // 获取访问量
+      countVisitor();
 
       // 从 localstorage 获取信息
       if (window.localStorage.getItem("reviewer")) {
