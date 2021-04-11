@@ -4,7 +4,7 @@ permalink: /about/
 sidebar: false
 ---
 
-<AboutPage :frontmatter="frontmatter"/>
+<AboutPage />
 
 <script>
 import { defineComponent } from 'vue'
