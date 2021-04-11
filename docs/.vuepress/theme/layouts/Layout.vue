@@ -51,4 +51,8 @@ export default defineComponent({
   margin: 5rem auto 0 auto;
   padding: 2rem 2.5rem;
 }
+
+.layout-component + .theme-default-content:not(.custom) {
+  margin-top: 0;
+}
 </style>

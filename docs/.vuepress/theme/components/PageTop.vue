@@ -55,9 +55,3 @@ export default defineComponent({
   }
 }
 </style>
-
-<style lang="scss">
-.articles-header + .theme-default-content:not(.custom) {
-  margin-top: 0;
-}
-</style>
