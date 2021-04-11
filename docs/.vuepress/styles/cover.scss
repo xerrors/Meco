@@ -26,6 +26,10 @@ header {
   .site-name {
     letter-spacing: 1px;
   }
+
+  .navbar-links .navbar-links-item > a {
+    padding: 5px 0;
+  }
 }
 
 // @media (min-width: 720px) {
