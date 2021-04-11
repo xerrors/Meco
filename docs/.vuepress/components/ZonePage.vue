@@ -38,8 +38,8 @@
     <div v-else class="posts">
       <div class="post-card" v-for="post in posts" :key="post.id">
         <div class="post-card__head">
-          <span class="post-card__status">{{ post.status }}</span>
           <span class="post-card__date" @click="msgCtrl.delMsg(post.id)">{{ post.date }}</span>
+          <span class="post-card__status">{{ post.status }}</span>
           <div class="btn-love" :class="{'love-active': post.active}" @click="msgCtrl.love(post.id)"></div>
         </div>
         <div class="post-card__body">
@@ -251,7 +251,7 @@ export default defineComponent({
       position: absolute;
       bottom: -25px;
       cursor: pointer;
-      right: -25px;
+      right: 0px;
       background: var(--accent-color);
       border-radius: 50%;
       width: 50px;
@@ -279,7 +279,7 @@ export default defineComponent({
 
   display: grid;
   grid-template-columns: auto 120px;
-  grid-template-rows: 60px auto 60px;
+  grid-template-rows: 40px auto 50px;
 
   border: 1px solid #aaa;
   border-radius: 8px;
@@ -290,7 +290,8 @@ export default defineComponent({
   .emoji-selector {
     height: 40px;
     display: flex;
-    padding-top: 10px;
+    font-size: 0.9rem;
+    // padding-top: 10px;
     div {
       margin-right: 10px;
       font-size: larger;
@@ -300,12 +301,12 @@ export default defineComponent({
     
     div.selected {
       position: relative;
-      transform: translateY(-8px);
+      transform: translateY(-4px);
 
       &::before {
         content: "";
         position: absolute;
-        bottom: -4px;
+        bottom: 4px;
         // width: 100%;
         left: 8px;
         right: 8px;
@@ -317,10 +318,9 @@ export default defineComponent({
   }
 
   input {    
-    width: 100%;
     border: none;
     height: 30px;
-    margin-top: 10px;
+    // margin-top: 10px;
     padding: 0 8px;
     border: 1px dashed #aaa;
     border-radius: 4px;
@@ -336,6 +336,7 @@ export default defineComponent({
     grid-column: span 2;
     padding: 12px 8px;
     font-size: 16px;
+    line-height: 1.2;
     border: 1px dashed #aaa;
     border-radius: 4px;
     resize: vertical;
@@ -348,13 +349,13 @@ export default defineComponent({
   }
 
   & > span {
-    margin: 28px 0;
-    font-size: 12px;
-    color: #999;
+    margin: 22px 0;
+    font-size: 14px;
+    color: var(--c-text-light-4);
   }
 
   button {
-    height: 40px;
+    height: 36px;
     margin-top: 15px;
     background: #3fbb82;
     color: white;
@@ -375,7 +376,7 @@ export default defineComponent({
     }
 
     &:disabled {
-      background: #919191;
+      background: #c2c4c2;
       cursor: not-allowed;
       box-shadow: 0 0 0 0 #dbffef
     }
@@ -400,7 +401,7 @@ export default defineComponent({
   .post-card {
     margin-bottom:2.5rem;
     border-radius: 3px;
-    // padding-left: 2rem;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 5px 0px;
     animation: swing-in-top-fwd 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     // &::before {
     //   z-index: 3;
@@ -435,10 +436,18 @@ export default defineComponent({
       // }
     }
 
+    &__status {
+      margin: 0 0.5rem;
+    }
+
+    &__date {
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+
     &__body {
       border: 1px solid var(--border-color-light);
       border-radius: 0 0 4px 4px;
-      letter-spacing: 1px;
       padding: 0 1rem;
 
       pre {
@@ -449,15 +458,6 @@ export default defineComponent({
         color: var(--c-text-light-3);
         padding: 0;
       }
-    }
-
-    &__status {
-      margin: 0 0.5rem;
-    }
-
-    &__date {
-      margin: 0 0.5rem;
-      font-weight: 500;
     }
   }
 
