@@ -1,15 +1,16 @@
 <template>
   <Layout>
     <template #page-top>
-      <div class="layout-component" v-if="fe.date">
+      <div class="ac pagetop" v-if="fe.date">
         <PageTop></PageTop>
       </div>
     </template>
 
     <template #page-bottom>
-      <div class="layout-component" v-if="fe.date">
+      <div class="ac page-comment" v-if="fe.date">
         <Comment></Comment>
       </div>
+      <Footer class="ac"></Footer>
     </template>
   </Layout>
 </template>
@@ -20,6 +21,7 @@ import { usePageFrontmatter, useSiteLocaleData } from "@vuepress/client";
 
 import PageTop from "../components/PageTop.vue";
 import Comment from "../components/Comment.vue";
+import Footer from "../components/Footer.vue";
 import Layout from "@vuepress/theme-default/lib/layouts/Layout.vue";
 
 export default defineComponent({
@@ -27,6 +29,7 @@ export default defineComponent({
     Layout,
     PageTop,
     Comment,
+    Footer,
   },
   setup() {
     const fe = usePageFrontmatter();
@@ -39,13 +42,21 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.layout-component {
+.ac {
   width: var(--page-width);
-  margin: 5rem auto 0 auto;
+  margin: 0 auto;
+}
+
+.pagetop {
+  margin-top: 5rem;
   padding: 2rem 2.5rem;
 }
 
-.layout-component + .theme-default-content:not(.custom) {
+.page-comment {
+  margin-bottom: 5rem;
+}
+
+.pagetop + .theme-default-content:not(.custom) {
   margin-top: 0;
 }
 </style>
