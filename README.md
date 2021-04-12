@@ -6,7 +6,11 @@
 2. css 变量的修改和适配
 3. 路由如何使用，似乎用不到
 4. 如何获取所有的文章，目前从后端取出
-5. 【实现】首页打字机效果 [ityped](https://www.shejidaren.com/ityped.html)
+
+功能：
+
+1. 【实现】首页打字机效果 [ityped](https://www.shejidaren.com/ityped.html)
+2. 添加footer
 
 已知bug
 
