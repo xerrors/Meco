@@ -462,6 +462,7 @@ export default {
 .comment-box.hidden-comment {
   border: none;
   padding: 0;
+  box-shadow: rgb(0 0 0 / 5%) 0px 0px 5px 0px;
 
   .btn-close {
     display: none;
