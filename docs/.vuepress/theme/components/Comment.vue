@@ -373,11 +373,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.comment-box {
+.comment-box:not(.hidden-comment) {
   margin-top: 50px;
   padding: 4px 12px 16px 12px;
   border: 1px solid #efefef;
   border-radius: 8px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 0px 5px 0px;
 
   .input-area {
     background: white;
@@ -390,7 +391,7 @@ export default {
       height: auto;
       vertical-align: bottom;
       box-shadow: none;
-      font-size: 14px;
+      font-size: 1rem;
       // line-height:10px;
 
       &:focus {
@@ -418,6 +419,9 @@ export default {
     }
   }
 
+}
+
+.comment-box {
   .action-btns {
     display: flex;
     justify-content: space-between;
@@ -462,7 +466,6 @@ export default {
 .comment-box.hidden-comment {
   border: none;
   padding: 0;
-  box-shadow: rgb(0 0 0 / 5%) 0px 0px 5px 0px;
 
   .btn-close {
     display: none;
