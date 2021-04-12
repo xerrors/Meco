@@ -9,7 +9,6 @@
 
 .theme-default-content:not(.custom) {
   margin-top: var(--header-height);
-  max-width: var(--page-width);
 
   &>:first-child {
     margin-top: 0;
@@ -40,7 +39,8 @@ header {
 //   }
 // }
 
-@media (min-width: 1200px) {
+// 1920*1080 1.5倍缩放之后的
+@media (min-width: 1279px) {
   header.navbar {
     display: flex;
     align-items: center;
@@ -125,32 +125,6 @@ header {
       }
     }
 
-//     // .sidebar-links .sidebar-link {
-//     //   
-
-//     .sidebar-link {
-
-
-
-//       &.active {
-//         color: inherit !important;
-//         border: none !important;
-
-//         &::before {
-//           background-color: #8e8787;
-//         }
-//       }
-
-//       // .sidebar-links > .sidebar-link > .sidebar-link-item {
-//       //   font-weight: bold;
-//       //   padding-left: 2.4rem;
-
-//       //   &::before {
-//       //     width: 10px;
-//       //   }
-//       // }
-//     }
-
     &:hover {
       a.sidebar-link {
         color: inherit;
@@ -159,13 +133,14 @@ header {
 //   }
 }
 
-
-@media (min-width: 1400px) {
+// 1920*1080 1.25倍缩放之后的
+@media (min-width: 1535px) {
   .sidebar {
     right: 6rem !important;
   }
 }
 
+// 2560*1440 1.5倍缩放之后的
 @media (min-width: 1700px) {
   .sidebar {
     right: 10rem !important;

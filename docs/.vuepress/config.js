@@ -9,6 +9,7 @@ function getConfig() {
       ['script', { src: '/font.js', type: 'application/javascript' }],
       ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ],
+    repo: 'xerrors/Meco',
     lang: 'zh-CN',
     title: 'Meco',
     description: '个人博客网站',
