@@ -39,7 +39,6 @@ export function getRandomCover() {
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207172403.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207172413.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207172425.png",
-    "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207172439.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207172450.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207172502.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207172528.png",
@@ -68,7 +67,6 @@ export function getRandomCover() {
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173016.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173028.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173038.png",
-    "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173047.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173101.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173109.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173118.png",
@@ -76,6 +74,8 @@ export function getRandomCover() {
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173141.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173152.png",
     "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207173201.png",
+    "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210412220553.png",
+    "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210412220808.png",
   ]
 
   const ind = getRandomInt(0, covers.length);
