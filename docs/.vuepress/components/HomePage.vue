@@ -68,7 +68,8 @@ export default defineComponent({
 }
 .hero {
   position: relative;
-  height: calc(100vh - 9rem);
+  padding-top: 1rem;
+  height: calc(100vh - 8rem);
   max-height: 1300px;
   h1 {
     margin-top: 3rem;

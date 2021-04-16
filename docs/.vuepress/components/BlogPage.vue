@@ -62,7 +62,7 @@
 
     <div class="blog-right">
       <div class="adversizement">
-        广告位招租
+        广告位招租（开玩笑）
       </div>
 
       <!-- <h4 class="border-left-h">我的专栏</h4>
@@ -295,6 +295,10 @@ export default defineComponent({
 .blogs {
   .blog-card,
   .week-card {
+    box-shadow: rgba(0,0,0,.05) 0 0 5px 0;
+    border-radius: 4px;
+    overflow: hidden;
+
     a {
       color: inherit;
     }
@@ -308,7 +312,7 @@ export default defineComponent({
     display: flex;
     height: 180px;
     margin-bottom: 24px;
-    border: 1px solid #f2f2f2;
+    border: 2px solid #f2f2f2;
     transition: all 0.3s ease-in-out;
     // animation: slide-in-blurred-bottom 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 

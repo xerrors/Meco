@@ -6,6 +6,7 @@
 .theme-default-content:not(.custom) {
   margin-top: var(--header-height);
   min-height: calc(100vh - var(--header-height));
+  padding-top: 0;
 
   &>:first-child {
     margin-top: 0;
@@ -38,7 +39,8 @@ header {
 
     height: var(--header-height) !important;
     border-bottom: none !important;
-    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+    // box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+    box-shadow: none;
     padding: 0 calc(50% - var(--page-width-w) / 2);
     position: absolute !important;
     top: 0;

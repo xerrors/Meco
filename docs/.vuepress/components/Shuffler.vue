@@ -86,7 +86,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      shuffler.autoStart();
+      setTimeout(shuffler.autoStart, 6000);
     })
 
     return {
