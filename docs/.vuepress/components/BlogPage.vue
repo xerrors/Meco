@@ -92,20 +92,11 @@ export default defineComponent({
     Shuffler,
   },
   setup() {
-    const banner = ref([{
-        cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210220180756.png",
-        link: "/anime-gan-note/",
-      }, {
-        cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210207165125.png",
-        link: "https://baidu.com",
-      }, {
-        cover: "https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210220100428.png",
-        link: "/cycle-gan-reading-note/",
-      },
-    ]);
+    const banner = ref([]);
 
     const loading = ref(true);
     const pages = ref([]);
+    const zhuanlan = ref([]);
 
     function getPages() {
       new Promise((resolve, reject) => {
@@ -114,32 +105,83 @@ export default defineComponent({
           method: "get",
         })
           .then((res) => {
-            pages.value = res.data.data.map((item) => {
-              item.formatDate = parseTime(
-                new Date(item.date),
-                "{y}年{m}月{d}日"
-              );
-              if (!item.cover) {
-                item.cover = getRandomCover();
-              }
-              if (item.permalink[0] != "/") {
-                item.permalink = "/" + item.permalink;
-              }
-              if (item.permalink[item.permalink.length-1] != '/') {
-                item.permalink =  item.permalink + "/";
-              }
-              return item;
-            });
-
-            pages.value.sort((a, b) => {
-              return Number(new Date(b.date)) - Number(new Date(a.date));
-            });
+            pages.value = prasePages(res.data.data);
             loading.value = false;
             resolve(res);
           })
           .catch((err) => {
             reject(err);
           });
+      });
+    }
+
+    function prasePages(res_data) {
+      var temp = res_data.map((item) => {
+        item.formatDate = parseTime(
+          new Date(item.date),
+          "{y}年{m}月{d}日"
+        );
+        if (!item.cover) {
+          item.cover = getRandomCover();
+        }
+        if (item.permalink[0] != "/") {
+          item.permalink = "/" + item.permalink;
+        }
+        if (item.permalink[item.permalink.length-1] != '/') {
+          item.permalink =  item.permalink + "/";
+        }
+        return item;
+      });
+
+      temp.sort((a, b) => {
+        return Number(new Date(b.date)) - Number(new Date(a.date));
+      });
+
+      return temp;
+    }
+
+    function getBanner() {
+      new Promise((resolve, reject) => {
+        axios({
+          url: "https://xerrors.fun:5000/api/admin/poster",
+          method: "get",
+        })
+        .then(res => {
+          banner.value = praseBanner(res.data.data);
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        })
+      })
+
+    }
+
+    function praseBanner(res_banner) {
+      const topIndex = res_banner.findIndex(item => item.top)
+      const temp = res_banner.splice(topIndex, 1)[0]
+      res_banner.unshift(temp)
+      console.log(res_banner)
+      return res_banner;
+    }
+
+    function getZhuanlan() {
+      new Promise((resolve, reject) => {
+        axios({
+          url: "https://xerrors.fun:5000/api/zhuanlan",
+        }).then((res) => {
+          // console.log(res.data.data);
+          zhuanlan.value = res.data.data.map((item) => {
+            const temp = {
+              cover: item.cover,
+              link: "/pages/zhuanlan?name=" + item.name,
+            };
+            return temp;
+          });
+          resolve(res);
+        }).catch(err => {
+          reject(err);
+        });
       });
     }
 
@@ -171,27 +213,7 @@ export default defineComponent({
       }
     });
 
-    const zhuanlan = ref([]);
-    function getZhuanlan() {
-      new Promise((resolve, reject) => {
-        axios({
-          url: "https://xerrors.fun:5000/api/zhuanlan",
-        }).then((res) => {
-          // console.log(res.data.data);
-          zhuanlan.value = res.data.data.map((item) => {
-            const temp = {
-              cover: item.cover,
-              link: "/pages/zhuanlan?name=" + item.name,
-            };
-            return temp;
-          });
-          resolve(res);
-        }).catch(err => {
-          reject(err);
-        });
-      });
-    }
-
+    getBanner();
     getPages();
     getZhuanlan();
 

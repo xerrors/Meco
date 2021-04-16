@@ -2,13 +2,6 @@
 @import "./code.scss";
 @import "./classes.scss";
 
-body {
-  font-family: 'Source Han Serif SC','Source Han Serif','source-han-serif-sc','PT Serif','SongTi SC','MicroSoft Yahei',Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
-}
-
-button {
-  font-family: inherit !important;
-}
 
 ::-webkit-scrollbar {
   width: 0!important;
@@ -44,4 +37,14 @@ button {
   --page-width: 800px;
 
   --header-height: 65px; // from medium.com
+}
+
+// global styles
+
+body {
+  font-family: 'Source Han Serif SC','Source Han Serif','source-han-serif-sc','PT Serif','SongTi SC','MicroSoft Yahei',Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+
+button {
+  font-family: inherit !important;
 }

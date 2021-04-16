@@ -12,9 +12,9 @@ $badgeWarningColor: $warningColor !default;
 $badgeDangerColor: $dangerColor !default;
 
 // layout
-$navbarHeight: 3.6rem !default;
+$navbarHeight:  var(--header-height);
 $sidebarWidth: 20rem !default;
-$contentWidth: 800px !default;
+$contentWidth: var(--page-width);
 $homePageWidth: 1136px !default;
 
 // responsive breakpoints

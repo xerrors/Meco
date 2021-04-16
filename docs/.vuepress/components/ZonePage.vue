@@ -219,52 +219,6 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-.page-header {
-  // background: #fafafa;
-
-  .page-header-content {
-    position: relative;
-    max-width: var(--page-width);
-    margin: 0 auto;
-    padding: 10px 0 40px 0;
-
-    h2 {
-      font-size: 36px;
-      line-height: 56px;
-      color: #1a1a26;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      color: var(--c-text-light-2);
-    }
-
-    .button-show {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-      color: white;
-
-      position: absolute;
-      bottom: -25px;
-      cursor: pointer;
-      right: 0px;
-      background: var(--accent-color);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .button-close {
-      transform: rotate(-45deg);
-    }
-  }
-}
-</style>
 
 <style lang="scss" scoped>
 .zone-container {

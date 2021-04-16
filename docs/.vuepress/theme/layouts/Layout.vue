@@ -10,7 +10,7 @@
       <div class="ac page-comment" v-if="fe.date">
         <Comment></Comment>
       </div>
-      <Footer class="ac"></Footer>
+      <Footer></Footer>
     </template>
   </Layout>
 </template>

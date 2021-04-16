@@ -4,11 +4,8 @@
       <div class="page-header-content">
         <h2>有朋自远方来，不亦悦乎。</h2>
         <p>
-          交个朋友，可以把你的 GitHub 地址、博客地址、个人网站或者其他能够代表自己作品的地方发送到我的邮箱 Xerrors@163.com；务必附带上头像、名称、一句话介绍/格言信息，如果能够顺便带上自己的职业或者研究方向就更好不过了，这样能够让其他访客更好的了解到你。
+          交个朋友，可以把你的 GitHub 地址、博客地址、个人网站或者其他能够代表自己作品的地方发送到我的邮箱 <a href="mailto:xerrors@163.com">Xerrors@163.com</a>；务必附带上头像、名称、一句话介绍/格言信息，如果能够顺便带上自己的职业或者研究方向就更好不过了，这样能够让其他访客更好的了解到你。
         </p>
-        <!-- <div :class="{ 'button-show': true, 'button-close': showCommit }" @click="showCommit = !showCommit">
-          <PlusOutlined />
-        </div> -->
       </div>
     </div>
     <Loading v-if="data.loading" />
