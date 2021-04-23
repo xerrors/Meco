@@ -22,7 +22,7 @@ import { usePageFrontmatter, useSiteLocaleData } from "@vuepress/client";
 import PageTop from "../components/PageTop.vue";
 import Comment from "../components/Comment.vue";
 import Footer from "../components/Footer.vue";
-import Layout from "@vuepress/theme-default/lib/layouts/Layout.vue";
+import Layout from "@vuepress/theme-default/lib/client/layouts/Layout.vue";
 
 export default defineComponent({
   components: {

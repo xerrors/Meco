@@ -4,7 +4,7 @@ code[class*=language-], pre[class*=language-] {
   color: inherit;
 }
 
-pre[class*=language-] code, .line-numbers {
+pre[class*=language-] code {
   color: inherit !important;
 }
 
@@ -13,9 +13,9 @@ pre[class*=language-] code, .line-numbers {
   opacity: 0.6;
 }
 
-div[class*=language-].line-numbers-mode::after {
-  border-right-color: #e0e0e0;
-}
+// div[class*=language-].line-numbers-mode::after {
+//   border-right-color: #e0e0e0;
+// }
 
 .theme-default-content code {
   background-color: var(--code-bg-color) !important;

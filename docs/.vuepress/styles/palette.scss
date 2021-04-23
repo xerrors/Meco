@@ -2,7 +2,9 @@
 $accentColor: #e63657;
 $textColor: #20202f;
 $borderColor: #eaecef !default;
-$codeBgColor: #f6f6f6;
+$codeBgColor: var(--code-bg-color);
+$highlightLineBgColor: #bbb;
+$lineNumbersColor: inherit;
 $arrowBgColor: #ccc !default;
 $tipColor: #42b983 !default;
 $warningColor: #e7c000 !default;
