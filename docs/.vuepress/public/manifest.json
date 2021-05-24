@@ -1,10 +1,10 @@
 {
-    "name": "Gourd",
-    "short_name": "Gourd",
+    "name": "Meco - Chen's Blog",
+    "short_name": "Meco",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "white",
-    "description": "Gourd - A blog site.",
+    "description": "Meco - Chen's Blog",
     "theme_color": "white",
     "icons": [
       {

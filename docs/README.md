@@ -1,13 +1,13 @@
 ---
 sidebar: false
-heroText: Hi, I'm Xerrors.
+heroText: Hi, I'm Chen.
 tagline: Hero subtitle
 actionText: 查看博客
 actionLink: /blogs/
 heroImage: /logo.png
 heroAlt: Logo image
 description: 
-footer: Developed by Xerrors
+footer: Developed by Chen
 ---
 
 <HomePage class="my-home" :frontmatter="frontmatter"/>
@@ -39,9 +39,3 @@ export default defineComponent({
   }
 }
 </style>
-
-<!-- <style lang='scss'>
-.theme-default-content {
-  max-width: var(--page-width-w)!important;
-}
-</style> -->

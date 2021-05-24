@@ -27,7 +27,7 @@ export default defineComponent({
   },
   setup() {
     const base = reactive({
-      author: "Xerrors",
+      author: "Chen",
       mail: "xerrors@163.com",
       info:
         "江南大学 · 2017级 · 计算机科学与技术专业 · 学习方向：计算机视觉、图像处理",
