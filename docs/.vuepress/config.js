@@ -20,6 +20,9 @@ function getConfig() {
       editLink: false,
       lastUpdated: false,
       contributors: false,
+      repo: 'xerrors/meco',
+      repoLabel: "Meco",
+      externalIcon: false,
 
       navbar: [
         { text: "博客", link: "/blogs/" },
@@ -27,17 +30,33 @@ function getConfig() {
         { text: "友链", link: "/friends/" },
         { text: "关于我", link: "/about/" },
       ],
+
+      markdown: {
+        links: false
+      },
     },
 
+
     plugins: [
-      ['@vuepress/medium-zoom', {
-        selector: ':not(a) > img:not(.no-zoom)',
-        // medium-zoom options here
-        // See: https://github.com/francoischalifour/medium-zoom#options
-      }],
-      ['@maginapp/vuepress-plugin-katex', {
-        delimiters: 'dollars',
-      }]
+      [
+        '@vuepress/medium-zoom', {
+          // medium-zoom options here
+          // See: https://github.com/francoischalifour/medium-zoom#options
+          selector: ':not(a) > img:not(.no-zoom)',
+        }
+      ],
+
+      [
+        '@maginapp/vuepress-plugin-katex', {
+          delimiters: 'dollars',
+        }
+      ],
+      [
+        '@vuepress/plugin-search',{
+          apikey: 'aa84b05f0d5d94a913b915272c8a1401',
+          indexName: 'dev-meco'
+        },
+      ],
     ],
 
     // extendsMarkdown: (md) => {
