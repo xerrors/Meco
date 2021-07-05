@@ -1,10 +1,10 @@
 {
-    "name": "Meco - Chen's Blog",
+    "name": "Meco - Yuchuan's Blog",
     "short_name": "Meco",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "white",
-    "description": "Meco - Chen's Blog",
+    "description": "Meco - Yuchuan's Blog",
     "theme_color": "white",
     "icons": [
       {

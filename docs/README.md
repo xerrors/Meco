@@ -1,13 +1,13 @@
 ---
 sidebar: false
-heroText: Hi, I'm Chen.
+heroText: Hi, I'm Yuchuan.
 tagline: Hero subtitle
 actionText: 查看博客
 actionLink: /blogs/
 heroImage: /logo.png
 heroAlt: Logo image
 description: 
-footer: Developed by Chen
+footer: Developed by Yuchuan
 ---
 
 <HomePage class="my-home" :frontmatter="frontmatter"/>
