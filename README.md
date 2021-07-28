@@ -12,12 +12,6 @@
 
 ![图片](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210726163746-image.png)
 
-目前还存在的问题
-
-1. 主题的配置需要修改
-2. css 变量的修改和适配
-3. 路由如何使用，似乎用不到
-
 ## Docker 部署
 
 使用 docker 可以方便的在服务器上部署，首先 clone 此项目：
