@@ -1,4 +1,14 @@
-这是基于 vuepress v2 的默认主题开发的博客网站，为了便于后续更新，尽量不对原始主题进行修改
+## Meco
+
+一个基于 vuepress v2 的默认主题开发的博客网站；
+
+- 易自定义；
+- 魔改程度低，便于升级；
+- 使用 AntD for vue2
+- 可以使用后台管理系统对数据进行管理，见[Meco-MS](https://github.com/Xerrors/Meco-MS/)
+- 可以使用基于 flask 的后端脚本来处理后台关系系统，见[Meco-Server](https://github.com/Xerrors/Meco-Server/)
+
+预览：[站点](https://www.xerrors.fun)
 
 ![图片](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20210726163746-image.png)
 
