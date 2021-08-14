@@ -21,7 +21,7 @@ function getConfig() {
       lastUpdated: false,
       contributors: false,
       repo: 'xerrors/meco',
-      repoLabel: "Meco",
+      repoLabel: "GitHub",
       externalIcon: false,
 
       navbar: [
