@@ -5,6 +5,6 @@ cd `dirname $0`
 
 git add $1
 
-git commit -a -m "auto commit by MS"
+git commit -am "auto commit by MS" || echo "Git is Clean"
 
 cd -
