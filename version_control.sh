@@ -5,6 +5,11 @@ cd `dirname $0`
 
 git add $1
 
-git commit -am "auto commit by MS" || echo "Git is Clean"
-
-cd -
+if [[ -n $(git diff --cached) ]]
+then 
+    git commit -m "auto commit by MS"
+else
+    echo ""
+    echo "Git is Clean!"
+    echo ""
+fi
