@@ -20,6 +20,8 @@
   /* color */
   --c-brand: #e63657;
   --c-brand-light: #e84a67;
+  --c-text: var(--c-text-light-2);
+  --c-text-accent: var(--c-text-light-1);
   --accent-color: #e63657;
   --code-bg-color: #f6f6f6;
   --code-inline-bg-color: inherit;
@@ -27,14 +29,15 @@
   --c-text-light-1: #1a1a26;
   --c-text-light-2: #20202f;
   --c-text-light-3: #41414e;
-  --c-text-light-4: #686260;
+  --c-text-light-4: #473d40;
 
-  --border-color-light: #f2f3f6;
+  --border-color-light: #eaeaea;
 
 
   /* width */
   --page-width-w: 1136px;
   --page-width: 800px;
+  --content-width: var(--page-width);
 
   --header-height: 65px; // from medium.com
 }

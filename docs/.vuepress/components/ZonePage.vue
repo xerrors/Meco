@@ -235,7 +235,7 @@ export default defineComponent({
   grid-template-columns: auto 120px;
   grid-template-rows: 40px auto 50px;
 
-  border: 1px solid #aaa;
+  border: 1px solid var(--border-color-light);
   border-radius: 8px;
   padding: 16px 20px;
 
@@ -276,11 +276,11 @@ export default defineComponent({
     height: 30px;
     // margin-top: 10px;
     padding: 0 8px;
-    border: 1px dashed #aaa;
+    border: 1px dashed var(--border-color-light);;
     border-radius: 4px;
 
     &:focus {
-      border: 1px solid #666;
+      border: 1px solid var(--border-color-light);;
       outline: none;
     }
 
@@ -291,14 +291,14 @@ export default defineComponent({
     padding: 12px 8px;
     font-size: 16px;
     line-height: 1.2;
-    border: 1px dashed #aaa;
+    border: 1px dashed var(--border-color-light);;
     border-radius: 4px;
     resize: vertical;
     height: 210px;
 
     &:focus {
       outline: none;
-      border: 1px solid #666;
+      border: 1px solid var(--border-color-light);;
     }
   }
 
@@ -330,7 +330,7 @@ export default defineComponent({
     }
 
     &:disabled {
-      background: #c2c4c2;
+      opacity: 0.2;
       cursor: not-allowed;
       box-shadow: 0 0 0 0 #dbffef
     }
@@ -355,7 +355,7 @@ export default defineComponent({
   .post-card {
     margin-bottom:2.5rem;
     border-radius: 3px;
-    box-shadow: rgb(0 0 0 / 5%) 0 0 5px 0px;
+    // box-shadow: rgb(0 0 0 / 5%) 0 0 5px 0px;
     animation: swing-in-top-fwd 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     // &::before {
     //   z-index: 3;

@@ -237,7 +237,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .blog-container {
   margin: 0 auto;
-  margin-top: var(--header-height);
+  // margin-top: var(--header-height);
   width: var(--page-width-w);
 
   display: grid;
@@ -275,7 +275,7 @@ export default defineComponent({
     padding: 8px 20px;
     margin-right: 16px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    // transition: all 0.2s ease-in-out;
 
     &:not(.active):hover {
       background: #fafafa;
@@ -295,7 +295,7 @@ export default defineComponent({
 .blogs {
   .blog-card,
   .week-card {
-    box-shadow: rgba(0,0,0,.05) 0 0 5px 0;
+    // box-shadow: rgba(0,0,0,.05) 0 0 5px 0;
     border-radius: 4px;
     overflow: hidden;
 
@@ -312,7 +312,7 @@ export default defineComponent({
     display: flex;
     height: 180px;
     margin-bottom: 24px;
-    border: 2px solid #f2f2f2;
+    border: 1px solid var(--border-color-light);
     transition: all 0.3s ease-in-out;
     // animation: slide-in-blurred-bottom 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 
@@ -332,11 +332,12 @@ export default defineComponent({
     &__info {
       width: 100%;
       padding: 0 24px;
+      padding-left: 40px;
       position: relative;
       transition: all 0.3s ease-in-out;
 
       h3 {
-        color: #1a1a26;
+        color: var(--c-text-light-1);
         margin-top: 38px;
         font-weight: bold;
         font-size: 20px;
@@ -350,7 +351,7 @@ export default defineComponent({
       span {
         position: absolute;
         bottom: 27px;
-        color: #41414e;
+        color: var(--c-text-light-4);
       }
     }
   }

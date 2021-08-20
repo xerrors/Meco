@@ -9,13 +9,13 @@ function getConfig() {
       ['script', { src: '/font.js', type: 'application/javascript' }],
       ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ],
-    repo: 'xerrors/Meco',
     lang: 'zh-CN',
     title: 'Meco',
     description: '个人博客网站',
     theme: path.resolve(__dirname, './theme'),
 
     themeConfig: {
+      darkMode: false,
       sidebar: 'auto',
       editLink: false,
       lastUpdated: false,
@@ -27,7 +27,7 @@ function getConfig() {
       navbar: [
         { text: "博客", link: "/blogs/" },
         { text: "动态", link: "/zone/" },
-        { text: "友链", link: "/friends/" },
+        // { text: "友链", link: "/friends/" },
         { text: "关于我", link: "/about/" },
       ],
 
@@ -45,16 +45,11 @@ function getConfig() {
           selector: ':not(a) > img:not(.no-zoom)',
         }
       ],
-
       [
-        '@maginapp/vuepress-plugin-katex', {
-          delimiters: 'dollars',
-        }
-      ],
-      [
-        '@vuepress/plugin-search',{
-          apikey: 'aa84b05f0d5d94a913b915272c8a1401',
-          indexName: 'dev-meco'
+        "md-enhance",
+        {
+          // 配置选项
+          tex: true,
         },
       ],
     ],

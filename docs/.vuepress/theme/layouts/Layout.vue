@@ -48,8 +48,8 @@ export default defineComponent({
 }
 
 .pagetop {
-  margin-top: 5rem;
-  padding: 2rem 2.5rem;
+  // margin-top: 5rem;
+  // padding: 2rem 2.5rem;
 }
 
 .page-comment {

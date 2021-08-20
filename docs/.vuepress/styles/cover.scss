@@ -1,10 +1,10 @@
 .theme-default-content p {
   text-align: justify;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
 }
 
 .theme-default-content:not(.custom) {
-  margin-top: var(--header-height);
+  margin-top: 10px;
   min-height: calc(100vh - var(--header-height));
   padding-top: 0;
 
@@ -64,7 +64,7 @@ header {
     width: 14rem !important;
     bottom: auto !important;
 
-    a.sidebar-link {
+    a.sidebar-item {
       position: relative;
       font-size: 12px!important;
       padding-left: 1.55rem;
@@ -90,7 +90,7 @@ header {
         top: calc(50% - 2px);
         transition: 0.3s;
         background-color: var(--c-text-light-4);
-        opacity: 0.2;
+        opacity: 0.1;
       }
 
       &.active {
@@ -107,9 +107,9 @@ header {
       display: none;
     }
 
-    .sidebar-sub-headers {
-      padding-left: 0;
-      .sidebar-link {
+    .sidebar-sub-items {
+      padding-left: 0!important;
+      .sidebar-item {
         padding-left: 2.4rem;
         &::before {
           width: 10px;
@@ -118,7 +118,7 @@ header {
     }
 
     &:hover {
-      a.sidebar-link {
+      a.sidebar-item {
         color: inherit;
       }
     }
