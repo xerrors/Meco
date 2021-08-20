@@ -9,6 +9,8 @@ tags:
 - Transformer
 categories: 人工智能
 ---
+【更新中】
+
 从关注 Transformer 到学习 Transformer 已经过了很久了，但是一直都是不求甚解，没有非常详细的了解这里面的数学理论和技术实现。现在在这里整理一下关于 Transformer 的疑问。
 
 ## 1. Transformer
