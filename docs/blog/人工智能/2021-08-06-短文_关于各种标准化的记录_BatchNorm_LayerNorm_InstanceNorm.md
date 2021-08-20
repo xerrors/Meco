@@ -45,3 +45,5 @@ $$
 ## 参考资料
 
 [1] [深度学习之17——归一化(BN+LN+IN+GN) - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/74476637)
+
+[2] [深度学习中的五种归一化（BN、LN、IN、GN和SN）方法简介_修行之路-CSDN博客_gn是什么意思](https://blog.csdn.net/u013289254/article/details/99690730)
