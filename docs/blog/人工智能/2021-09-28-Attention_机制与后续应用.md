@@ -29,7 +29,7 @@ categories: 人工智能
 
   - 为了解决这一由长序列到定长向量转化而造成的信息损失的瓶颈，Attention注意力机制被引入了。Attention机制跟人类翻译文章时候的思路有些类似，即将注意力关注于我们翻译部分对应的上下文。同样的，Attention模型中，当我们翻译当前词语时，我们会寻找源语句中相对应的几个词语，并结合之前的已经翻译的部分作出相应的翻译，如下图所示，当我们翻译“knowledge”时，只需将注意力放在源句中“知识”的部分，当翻译“power”时，只需将注意力集中在"力量“。这样，当我们decoder预测目标翻译的时候就可以看到encoder的所有信息，而不仅局限于原来模型中定长的隐藏向量，并且不会丧失长程的信息。图源：[https://zhuanlan.zhihu.com/p/47063917](https://zhuanlan.zhihu.com/p/47063917)
 
-    ![Untitled](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/Untitled 2.png)
+    ![图片](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220306093603-Untitled-2.png)
 - self-attention 与 Transformer
 
   - Attention机制其实就是一系列注意力分配系数，也就是一系列权重参数，权重的计算往往是使用 $Attention Value = \operatorname{similarity}(Q K^T)V$ 图源：[https://zhuanlan.zhihu.com/p/35571412](https://zhuanlan.zhihu.com/p/35571412)
@@ -45,7 +45,7 @@ categories: 人工智能
 
       源自：《A Survey of Transformers》复旦大学 邱锡鹏教授
 
-    ![Untitled](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/Untitled 4.png)
+    ![图片](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220306093641-Untitled-4.png)
 
     ![](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220306091923.png)
 
