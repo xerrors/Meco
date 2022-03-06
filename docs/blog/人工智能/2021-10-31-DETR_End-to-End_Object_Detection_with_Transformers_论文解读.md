@@ -2,13 +2,12 @@
 title: DETR End-to-End Object Detection with Transformers 论文解读
 date: 2021-10-31 09:37:11
 permalink: /detr-into/
-cover: 
+cover: https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220306094847.png
 tags: 
 - 目标检测
 - Transformer
 categories: 人工智能
 ---
-
 ## 1. DETR: End-to-End Object Detection with Transformers
 
 会议/期刊: ECCV
