@@ -23,8 +23,6 @@ categories: 人工智能
   - RNN机制实际中存在长程梯度消失的问题，encoder过程将输入的句子转换为语义中间件，decoder过程根据语义中间件和之前的单词输出，依次输出最有可能的单词组成句子。对于较长的句子，我们很难寄希望于将输入的序列转化为定长的向量而保存所有的有效信息，比如长度为10的文本和长度为1000的文本，所蕴含的信息量必然是不一样的。图源自：[https://www.jianshu.com/p/1d67638139da](https://www.jianshu.com/p/1d67638139da)
 
     ![Untitled](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/Untitled.png)
-
-    ![Untitled](Attention%20%20e4786/Untitled%201.png)
 - 使用的场景
 
   - 为了解决这一由长序列到定长向量转化而造成的信息损失的瓶颈，Attention注意力机制被引入了。Attention机制跟人类翻译文章时候的思路有些类似，即将注意力关注于我们翻译部分对应的上下文。同样的，Attention模型中，当我们翻译当前词语时，我们会寻找源语句中相对应的几个词语，并结合之前的已经翻译的部分作出相应的翻译，如下图所示，当我们翻译“knowledge”时，只需将注意力放在源句中“知识”的部分，当翻译“power”时，只需将注意力集中在"力量“。这样，当我们decoder预测目标翻译的时候就可以看到encoder的所有信息，而不仅局限于原来模型中定长的隐藏向量，并且不会丧失长程的信息。图源：[https://zhuanlan.zhihu.com/p/47063917](https://zhuanlan.zhihu.com/p/47063917)
