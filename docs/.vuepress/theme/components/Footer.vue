@@ -1,6 +1,6 @@
 <template>
   <div class="footer-container">
-    &copy; 2019-2021 ❤️ Yuchuan &ensp;
+    &copy; 2019-2022 ❤️ Yuchuan &ensp;
     <a href="http://www.beian.miit.gov.cn" target="_blank">皖 ICP 备 19016269 号</a>
     <!-- <svg viewBox="0 0 120 28">
       <defs>
