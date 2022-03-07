@@ -8,19 +8,16 @@ tags:
 - 人工智能
 categories: 人工智能
 ---
-
-# KnowPrompt: Knowledge-aware Prompt-tuning with Synergistic Optimization for Relation Extraction
-
-作者: Xiang.Chen
-可用链接: https://arxiv.org/abs/2104.07650, https://www.connectedpapers.com/main/3624cbbe08f6bc7979e7403d2b32b70816f810f1/KnowPrompt%3A-Knowledge%20aware-Prompt%20tuning-with-Synergistic-Optimization-for-Relation-Extraction/graph, https://github.com/zjunlp/KnowPrompt
-年份: 2021
-日期: December 18, 2021 11:24 AM
-状态: 略读
-论文标签: Prompt, RE
+## 1. 简介
 
 ![Untitled](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220307133634.png)
 
-最近，prompt-tuning 在某些少见的分类任务中取得了可喜的成果。prompt-tuning 的核心思想是在输入中插入文本片段（即模板），并将分类任务转化为一个掩码的语言建模问题（masked language modeling problem）。然而，对于关系提取来说，确定一个合适的提示模板需要领域的专业知识，而且要获得一个合适的标签词是很麻烦和耗时的。**此外，实体和关系之间存在着丰富的语义知识（关系标签中存在丰富的语义和先验知识），不能被忽视。**为此，我们专注于将知识纳入关系提取的prompt-tuning 中，并提出了一种具有**协同优化功能**的**知识感知** prompt-tuning 调整方法（KnowPrompt）。具体来说，我们将实体和关系知识注入到具有可学习的虚拟模板词以及答案词的 prompt 构建中，并通过知识约束来协同优化它们的表述。在五个标准和低资源设置的数据集上的广泛实验结果证明了我们方法的有效性。https://github.com/zjunlp/KnowPrompt
+**KnowPrompt: Knowledge-aware Prompt-tuning with Synergistic Optimization for Relation Extraction**
+
+- 作者：Xiang.Chen
+- 期刊：WWW2022
+- 可用链接：[[arXiv链接](https://arxiv.org/abs/2104.07650)][[GitHub](https://github.com/zjunlp/KnowPrompt)]
+- 摘要：最近，prompt-tuning 在某些少见的分类任务中取得了可喜的成果。prompt-tuning 的核心思想是在输入中插入文本片段（即模板），并将分类任务转化为一个掩码的语言建模问题（masked language modeling problem）。然而，对于关系提取来说，确定一个合适的提示模板需要领域的专业知识，而且要获得一个合适的标签词是很麻烦和耗时的。**此外，实体和关系之间存在着丰富的语义知识（关系标签中存在丰富的语义和先验知识），不能被忽视。**为此，我们专注于将知识纳入关系提取的prompt-tuning 中，并提出了一种具有**协同优化功能**的**知识感知** prompt-tuning 调整方法（KnowPrompt）。具体来说，我们将实体和关系知识注入到具有可学习的虚拟模板词以及答案词的 prompt 构建中，并通过知识约束来协同优化它们的表述。在五个标准和低资源设置的数据集上的广泛实验结果证明了我们方法的有效性。https://github.com/zjunlp/KnowPrompt
 
 ![图1：通过将特定任务格式化为完形填空任务来刺激PLM知识的即时调优示例。虚球中的P和C代表语义完形的虚词Person和Country。](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220307133606.png)
 
@@ -30,7 +27,9 @@ categories: 人工智能
 
 图2：论文中描述的答案词是指我们提出的虚拟答案词。
 
-### 简单记录：
+## 2. 简单记录
+
+### 前言
 
 目前的知识提取的方法不行（PLMs + classifier）their performance heavily depends on time-consuming and labor-intensive annotated data, making it hard to generalize well.
 
@@ -50,7 +49,7 @@ categories: 人工智能
 
 第三章补充了prompt-tuning的背景知识，可以借助此图理解[[Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing](https://www.notion.so/Pre-train-prompt-and-predict-A-systematic-survey-of-prompting-methods-in-natural-language-process-299045f92e424f64ab7ccd1397b790a3) ]
 
-**知识注入**
+### 知识注入
 
 分为实体知识注入和关系知识注入；
 
@@ -61,14 +60,15 @@ categories: 人工智能
 **实体知识注入**：实体的类型标签有用但是数据集中不一定会有，但是可以通过特定关系中包含的先验知识来获得**潜在的实体类型的范围**（However, we can obtain the scope of the potential entity types with prior knowledge contained in a specific relation, rather than annotation.）。可以根据关系类名来估计潜在实体类型的候选集的先验分布（Intuitively, we estimate the prior distributions $\phi_{sub}$ and $\phi_{obj}$ over the candidate set $C_{sub}$ and $C_{obj}$ of potential entity types, respectively, according to the relation class, where the prior distributions are estimated by frequency statistics.）。所以知识注入过程可以公式化为[公式1](https://www.notion.so/KnowPrompt-Knowledge-aware-Prompt-tuning-with-Synergistic-Optimization-for-Relation-Extraction-ab64d0b0c7cf46c49923b118266b59e0)。$I$ 表示去重操作，$\mathbf{e}$ 表示PLM的word-embedding。这就得到了实体的 Typer Marker，具体的使用方法类似于[图2](https://www.notion.so/KnowPrompt-Knowledge-aware-Prompt-tuning-with-Synergistic-Optimization-for-Relation-Extraction-ab64d0b0c7cf46c49923b118266b59e0)中的绿色部分。
 
 $$
-\begin{equation}\hat{\mathbf{e}}_{[s u b]}=\sum \phi_{s u b} \cdot \mathbf{e}\left(I\left(\mathbf{C}_{s u b}\right)\right)\end{equation}
+\hat{\mathbf{e}}_{[s u b]}=\sum \phi_{s u b} \cdot \mathbf{e}\left(I\left(\mathbf{C}_{s u b}\right)\right)
 
 $$
 
 **关系知识的注入**：以往是自动生成词汇表中的标签词和一个任务标签之间的一一映射，搜索计算复杂度大且没有用到关系的语义知识。这里的 $\mathbf{e}$ 表示 PLM 的 HEAD Layer 的一个额外的可学习关系嵌入层。作者提议对有关标签的语义知识进行编码并促进 RE 的过程（We propose to encodes semantic knowledge about the label and facilitates the process of RE）。
 
 $$
-\begin{equation}\hat{\mathbf{e}}_{[r e l]}\left(v^{\prime}\right)=\phi_{r} \cdot \mathbf{e}\left(\mathbf{C}_{r}\right)\end{equation}
+
+\hat{\mathbf{e}}_{[r e l]}\left(v^{\prime}\right)=\phi_{r} \cdot \mathbf{e}\left(\mathbf{C}_{r}\right)
 
 $$
 
@@ -97,31 +97,27 @@ for i, idx in enumerate(so_word):
 第一个约束，上下文感知 Prompt 校准（Context-aware Prompt Calibration）。基于自然语言初始化的向量表达并不一定是最优的，所以需要通过上下文进一步校准他们的表示（Although our virtual type and answer words are initialized based on knowledge, they may not be optimal in the latent variable space. They should be associated with the surrounding context. Thus, further optimization is necessary by perceiving the context to calibrate their representation.）$p(y \mid x)=p\left([\text { MASK }]=\mathcal{V}^{\prime} \mid x_{\text {prompt }}\right)$ 通过减少这个损失来修正（？）
 
 $$
-\begin{equation}\mathcal{J}_{[\text {MASK }]}=-\frac{1}{|\mathcal{X}|} \sum_{x \in \mathcal{X}} \mathrm{y} \log p(y \mid x)\end{equation}
+\mathcal{J}_{[\text {MASK }]}=-\frac{1}{|\mathcal{X}|} \sum_{x \in \mathcal{X}} \mathrm{y} \log p(y \mid x)
 
 $$
 
 第二个约束，隐式结构约束（Implicit Structured Constraints）（即代码中的KE-Loss）。$(s,r,o)$ 分别表示（virtual types of subject, virtual types of object, relation label）他们的词嵌入都是直接将 virtual type words and virtual answer words 的输出来计算的，结构损失如公式所示，等式的后半部分是负例样本（$(s_i^{'}, r, o_i^{'})$ are negative samples,  $\gamma$  is the margin, $\sigma$ refers to the sigmoid function and $d_r$ is the scoring function.）
 
 $$
-\begin{equation}
 \begin{aligned}
 &\mathcal{J}_{\text {structured }}=-\log \sigma\left(\gamma-d_{r}(\mathrm{~s}, \mathbf{o})\right) 
 -\sum_{i=1}^{n} \frac{1}{n} \log \sigma\left(d_{r}\left(\mathrm{~s}_{\mathbf{i}}^{\prime}, \mathbf{o}_{\mathbf{i}}^{\prime}\right)-\gamma\right)
 \end{aligned}
-\end{equation}
 
 $$
 
 $$
-\begin{equation}d_{r}(\mathbf{s}, \mathbf{o})=\|\mathbf{s}+\mathbf{r}-\mathbf{o}\|_{2}\end{equation}
+d_{r}(\mathbf{s}, \mathbf{o})=\|\mathbf{s}+\mathbf{r}-\mathbf{o}\|_{2}
 
 $$
 
-### 实验结果以及结论：
+## 3. 实验结果以及结论：
 
 ![Untitled](https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220307133445.png)
 
-<aside>
-💡 结论：In this paper, we present KnowPrompt for relation extraction, which mainly includes knowledge-aware prompt construction and synergistic optimization with knowledge constraints. In the future, we plan to explore two directions, including: (i) extending to semi-supervised setting to further leverage unlabeled data; (ii) extending to lifelong learning, whereas prompt should be optimized with adaptive tasks. （本文提出了一种基于知识感知的关系抽取方法KnowPrompt，主要包括知识感知的提示符构造和基于知识约束的synergistic 优化。未来，我们计划探索两个方向，包括:(i)扩展到半监督设置，进一步利用无标签数据;(2)扩展到终身学习，而提示应通过适应性任务优化。）
-</aside>
+结论：In this paper, we present KnowPrompt for relation extraction, which mainly includes knowledge-aware prompt construction and synergistic optimization with knowledge constraints. In the future, we plan to explore two directions, including: (i) extending to semi-supervised setting to further leverage unlabeled data; (ii) extending to lifelong learning, whereas prompt should be optimized with adaptive tasks. （本文提出了一种基于知识感知的关系抽取方法KnowPrompt，主要包括知识感知的提示符构造和基于知识约束的synergistic 优化。未来，我们计划探索两个方向，包括:(i)扩展到半监督设置，进一步利用无标签数据;(2)扩展到终身学习，而提示应通过适应性任务优化。）
