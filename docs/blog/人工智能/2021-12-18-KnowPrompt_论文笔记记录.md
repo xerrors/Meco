@@ -2,7 +2,7 @@
 title: KnowPrompt 论文笔记记录
 date: 2021-12-18 13:33:44
 permalink: /know-prompt/
-cover: 
+cover: https://xerrors.oss-cn-shanghai.aliyuncs.com/imgs/20220307135144.png
 tags: 
 - Prompt
 - 人工智能
