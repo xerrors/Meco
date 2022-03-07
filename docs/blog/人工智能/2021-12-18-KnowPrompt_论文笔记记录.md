@@ -67,7 +67,6 @@ $$
 **关系知识的注入**：以往是自动生成词汇表中的标签词和一个任务标签之间的一一映射，搜索计算复杂度大且没有用到关系的语义知识。这里的 $\mathbf{e}$ 表示 PLM 的 HEAD Layer 的一个额外的可学习关系嵌入层。作者提议对有关标签的语义知识进行编码并促进 RE 的过程（We propose to encodes semantic knowledge about the label and facilitates the process of RE）。
 
 $$
-
 \hat{\mathbf{e}}_{[r e l]}\left(v^{\prime}\right)=\phi_{r} \cdot \mathbf{e}\left(\mathbf{C}_{r}\right)
 
 $$
